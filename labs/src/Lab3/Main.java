@@ -6,14 +6,16 @@ package Lab3;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.PatternSyntaxException;
 
 public class Main {
     public static  void main(String[] args) {
 
-            String text = "Привіт Це приклад тексту. Текст містить декілька речень. Речення розділяються крапками.";
+            String text = "Привіт,Це приклад тексту. Текст містить декілька речень. Речення розділяються крапками.";
             String[] words = {"текст", "речення","Привіт"};
 
             Map<String, Integer> wordCounts = new HashMap<>();
+        try {
 
             // Розділяємо текст на речення за допомогою крапки як роздільника
             String[] sentences = text.split("[.,]");
@@ -52,6 +54,13 @@ public class Main {
             for (String word : words) {
                 System.out.println("Слово '" + word + "' зустрічається в " + wordCounts.getOrDefault(word.toLowerCase(), 0) + " реченнях.");
             }
+        }
+        catch (PatternSyntaxException e) {
+            System.err.println("Помилка у регулярному виразі для розділення тексту на речення: " + e.getMessage());
+        }
+        catch (NullPointerException e) {
+            System.err.println("Помилка: текст або масив слів не можуть бути null.");
+        }
     }
 }
 
