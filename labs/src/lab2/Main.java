@@ -41,7 +41,7 @@ public class Main {
                 }
 
                 MatrixCalc matrix = new MatrixCalc();
-                matrix.MatrOP(rows,cols,matrix1,matrix2);
+                matrix.MatrOP(4,4,matrix1,matrix2);
 
         }
 
