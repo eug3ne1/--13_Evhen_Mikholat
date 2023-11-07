@@ -7,7 +7,7 @@ public class Student {
     private double grades;
     private String major;
 
-    public Student(int id, String name, int age, double grades, String major) {
+    public Student(Integer id, String name, Integer age, double grades, String major) {
         if (name == null || name.isEmpty() || major == null || major.isEmpty()) {
             throw new IllegalArgumentException("Ім'я та спеціальність не можуть бути пустими.");
         }

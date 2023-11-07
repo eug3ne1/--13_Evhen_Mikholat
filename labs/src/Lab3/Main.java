@@ -3,21 +3,23 @@ package Lab3;
 //C3 = 1318 % 3 =1; // StringBuffer
 //C17 = 1318 % 17 = 9; // Задано текст та масив слів. Підрахувати у скількох реченнях зустрічається кожне слово масиву.
 
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.PatternSyntaxException;
 
 public class Main {
-    public static  void main(String[] args) {
+    public static void main(String[] args) {
+        String text = "Це приклад тексту. Текст містить декілька речень, розділені комами. Речення також можуть містити слова, які шукаємо. Текст містить текст.";
+        String[] words = {"текст","речення"};
 
-            String text = "Привіт,Це приклад тексту. Текст містить декілька речень. Речення розділяються крапками.";
-            String[] words = {"текст", "речення","Привіт"};
+        Map<String, Integer> wordCounts = new HashMap<>();
+        if (text.isEmpty()){
+            System.out.println("Текст є порожнім");
+        } else if (words.length==0) {
+            System.out.println("Масив слів є порожнім");
 
-            Map<String, Integer> wordCounts = new HashMap<>();
-        try {
-
-            // Розділяємо текст на речення за допомогою крапки як роздільника
+        } else{
+            // Розділяємо текст на речення за допомогою крапки або коми як роздільника
             String[] sentences = text.split("[.,]");
 
             for (String sentence : sentences) {
@@ -35,6 +37,7 @@ public class Main {
 
                     // Шукаємо входження слова в речення
                     int index = sentenceBuffer.indexOf(wordBuffer.toString());
+                    int count = 0; // Лічильник кількості входжень слова в речення
                     while (index != -1) {
                         int sentenceEndIndex = sentenceBuffer.indexOf(" ", index);
                         if (sentenceEndIndex == -1) {
@@ -43,6 +46,12 @@ public class Main {
                         }
                         String matchedWord = sentenceBuffer.substring(index, sentenceEndIndex);
                         wordCounts.put(matchedWord, wordCounts.getOrDefault(matchedWord, 0) + 1);
+
+                        count++; // Збільшуємо кількість входжень слова в речення
+                        if (count >= 2) {
+                            // Якщо слово зустрілося більше ніж один раз у реченні, пропускаємо його
+                            wordCounts.put(matchedWord, wordCounts.get(matchedWord) - 1);
+                        }
 
                         // Пересуваємо індекс для пошуку інших входжень слова в речення
                         index = sentenceBuffer.indexOf(wordBuffer.toString(), index + 1);
@@ -54,13 +63,11 @@ public class Main {
             for (String word : words) {
                 System.out.println("Слово '" + word + "' зустрічається в " + wordCounts.getOrDefault(word.toLowerCase(), 0) + " реченнях.");
             }
+
         }
-        catch (PatternSyntaxException e) {
-            System.err.println("Помилка у регулярному виразі для розділення тексту на речення: " + e.getMessage());
-        }
-        catch (NullPointerException e) {
-            System.err.println("Помилка: текст або масив слів не можуть бути null.");
-        }
+
+
     }
 }
+
 

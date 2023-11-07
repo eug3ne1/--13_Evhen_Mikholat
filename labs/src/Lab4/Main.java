@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             Student[] students = {
-                    new Student(1, "John", 20, 3.5, "Computer Science"),
+                    new Student(1, "John", 30, 3.5, "Computer Science"),
                     new Student(2, "Alice", 22, 3.8, "Engineering"),
                     new Student(3, "Bob", 21, 3.2, "Mathematics"),
                     new Student(4, "Eve", 23, 3.9, "Physics"),
