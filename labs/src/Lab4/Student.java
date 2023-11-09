@@ -1,15 +1,17 @@
 package Lab4;
 
 public class Student {
-    private int id;
-    private String name;
-    private int age;
-    private double grades;
-    private String major;
+    private final int id;
+    private final String name;
+    private final int age;
+    private final double grades;
+    private final String major;
 
     public Student(Integer id, String name, Integer age, double grades, String major) {
-        if (name == null || name.isEmpty() || major == null || major.isEmpty()) {
-            throw new IllegalArgumentException("Ім'я та спеціальність не можуть бути пустими.");
+        if (name == null || name.isEmpty() ) {
+            throw new IllegalArgumentException("Ім'я не може бути пустими полем.");
+        } else if (major == null || major.isEmpty()) {
+            throw new IllegalArgumentException("Cпеціальність не можe бути пустими полем.");
         }
         this.id = id;
         this.name = name;

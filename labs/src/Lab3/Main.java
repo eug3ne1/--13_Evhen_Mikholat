@@ -9,8 +9,8 @@ import java.util.regex.PatternSyntaxException;
 
 public class Main {
     public static void main(String[] args) {
-        String text = "Це приклад тексту. Текст містить декілька речень, розділені комами. Речення також можуть містити слова, які шукаємо. Текст містить текст.";
-        String[] words = {"текст","речення"};
+        String text = "Це приклад тексту. містить декілька речень, розділені комами! Речення також можуть містити слова, які шукаємо. Текст містить текст.";
+        String[] words = {"текст","речення","Це"};
 
         Map<String, Integer> wordCounts = new HashMap<>();
         if (text.isEmpty()){
@@ -20,7 +20,7 @@ public class Main {
 
         } else{
             // Розділяємо текст на речення за допомогою крапки або коми як роздільника
-            String[] sentences = text.split("[.,]");
+            String[] sentences = text.split("[.,!?]");
 
             for (String sentence : sentences) {
                 for (String word : words) {
@@ -65,8 +65,6 @@ public class Main {
             }
 
         }
-
-
     }
 }
 
