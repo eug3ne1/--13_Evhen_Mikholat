@@ -1,12 +1,13 @@
 package Lab5;
 
 import java.util.List;
+import java.util.Set;
 
 public class Sentence {
     private List<Object> components;
-    private List<Word> words;
+    private Set<Word> words;
 
-    public Sentence(List<Object> components, List<Word> words) {
+    public Sentence(List<Object> components, Set<Word> words) {
         this.components = components;
         this.words = words;
     }
@@ -15,7 +16,7 @@ public class Sentence {
         return components;
     }
 
-    public List<Word> getWords() {
+    public Set<Word> getWords() {
         return words;
     }
 }
