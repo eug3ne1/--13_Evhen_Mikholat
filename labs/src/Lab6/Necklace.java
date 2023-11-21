@@ -51,6 +51,7 @@ public class Necklace {
                 result.add(stone);
             }
         }
+        result.sort(Comparator.comparingDouble(Stone::getRefraction));
         return result;
 
 

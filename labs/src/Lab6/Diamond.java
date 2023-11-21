@@ -36,11 +36,10 @@ public class Diamond extends Stone{
 
     @Override
     public String toString() {
-        return "\nDiamond " +
+        return "\nDiamond: " +
                 "carats=" + carats +
                 ", refraction=" + refraction +
                 ", price_per_one_carat=" + price_per_one_carat +
-                ", price=" + price +
-                '}';
+                ", price=" + price;
     }
 }
