@@ -2,7 +2,7 @@ package Lab6;
 
 import java.util.*;
 
-public class CustomLinkedList<Stone> {
+public class CustomLinkedList<Stone>{
 
 
     private static class Node<Stone> {

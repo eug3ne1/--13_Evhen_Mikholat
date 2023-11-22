@@ -1,9 +1,20 @@
+
 package Lab6;
+
+// що відповідає заданому діапазону параметрів прозорості.
+//    1318%13=5
+//    Визначити ієрархію дорогоцінного та напівкоштовного каміння. Відібрати
+//    камені для намиста. Порахувати загальну вагу (у каратах) і вартість намиста.
+//    Провести сортування каміння намиста за цінністю. Знайти каміння в намисто,
+
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+
+
     public static void main(String[] args) {
         Stone diamond = new Diamond(1.05f,2.8f);
         Stone rubin = new Rubin(1.89f,1.735f);
@@ -16,7 +27,7 @@ public class Main {
 //        CustomLinkedList<Stone> customLinkedList= new CustomLinkedList<Stone>();
 //        customLinkedList.add(rubin);
 //        System.out.println(customLinkedList);
-
+//
 //        CustomLinkedList<Stone> customList = new CustomLinkedList<>();
 //        customList.add(diamond);
 //        customList.add(malachite);
