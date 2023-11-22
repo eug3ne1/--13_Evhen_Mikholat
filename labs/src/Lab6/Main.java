@@ -13,9 +13,9 @@ public class Main {
 //        List<Stone> collection = new ArrayList<>();
 //        collection.add(diamond);
 //        collection.add(malachite);
-//        List<Stone> customLinkedList= new CustomLinkedList<>(collection);
-//        customLinkedList.add(rubin);
-//        System.out.println(customLinkedList);
+        CustomLinkedList<Stone> customLinkedList= new CustomLinkedList<Stone>();
+        customLinkedList.add(rubin);
+        System.out.println(customLinkedList);
 
 //        CustomLinkedList<Stone> customList = new CustomLinkedList<>();
 //        customList.add(diamond);
@@ -37,22 +37,22 @@ public class Main {
 //        System.out.println(customList);
 
 
-        // створюємо об'єкт класу намисто
-        Necklace necklace = new Necklace();
-        // додаємо до намиста камні
-        necklace.addStone(diamond);
-        necklace.addStone(sapphire);
-        necklace.addStone(quartz);
-        necklace.addStone(malachite);
-        necklace.addStone(rubin);
-
-        System.out.println(necklace.getStones());
-
-        System.out.println("\nЗагальна вага намиста "+necklace.calcWeight()+ " карат");
-        System.out.println("Загальна ціна намиста "+necklace.priceAll()+" $");
-        necklace.sortByPrice();
-        System.out.println("Каміння в намисті, що відповідає папарметрам пошуку");
-        System.out.println(necklace.findByRefraction(1.7f,2.333f));
+//        // створюємо об'єкт класу намисто
+//        Necklace necklace = new Necklace();
+//        // додаємо до намиста камні
+//        necklace.addStone(diamond);
+//        necklace.addStone(sapphire);
+//        necklace.addStone(quartz);
+//        necklace.addStone(malachite);
+//        necklace.addStone(rubin);
+//
+//        System.out.println(necklace.getStones());
+//
+//        System.out.println("\nЗагальна вага намиста "+necklace.calcWeight()+ " карат");
+//        System.out.println("Загальна ціна намиста "+necklace.priceAll()+" $");
+//        necklace.sortByPrice();
+//        System.out.println("Каміння в намисті, що відповідає папарметрам пошуку");
+//        System.out.println(necklace.findByRefraction(1.7f,2.333f));
 
 
     }

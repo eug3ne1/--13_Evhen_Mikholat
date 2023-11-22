@@ -3,6 +3,8 @@ package Lab6;
 import java.util.*;
 
 public class CustomLinkedList<Stone> {
+
+
     private static class Node<Stone> {
         Stone data;
         Node<Stone> next;
@@ -147,8 +149,17 @@ public class CustomLinkedList<Stone> {
         size = 0;
     }
 
-    public boolean contains(Object o) {
+    public boolean contains(Stone o) {
         return indexOf(o) != -1;
+    }
+    public boolean containsAll(Collection<Stone> collection) {
+        Objects.requireNonNull(collection);
+        for (Stone item : collection) {
+            if (!contains(item)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean addAll(Collection<? extends Stone> collection) {
@@ -185,7 +196,7 @@ public class CustomLinkedList<Stone> {
         return array;
     }
 
-// Додаткові методи
+
 
     public boolean removeAll(Collection<Stone> collection) {
         Objects.requireNonNull(collection);
@@ -223,6 +234,46 @@ public class CustomLinkedList<Stone> {
             current = next;
         }
         head = prev;
+    }
+
+    public CustomLinkedList<Stone> subList(int fromIndex, int toIndex) {
+        if (fromIndex < 0 || toIndex > size || fromIndex > toIndex) {
+            throw new IndexOutOfBoundsException("From Index: " + fromIndex + ", Stoneo Index: " + toIndex + ", Size: " + size);
+        }
+        CustomLinkedList<Stone> sub = new CustomLinkedList<>();
+        Node<Stone> current = head;
+        int index = 0;
+        while (current != null) {
+            if (index >= fromIndex && index < toIndex) {
+                sub.add(current.data);
+            }
+            current = current.next;
+            index++;
+        }
+        return sub;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CustomLinkedList)) {
+            return false;
+        }
+        CustomLinkedList<?> other = (CustomLinkedList<?>) o;
+        if (size != other.size) {
+            return false;
+        }
+        Node<Stone> current = head;
+        Node<?> otherCurrent = other.head;
+        while (current != null) {
+            if (!Objects.equals(current.data, otherCurrent.data)) {
+                return false;
+            }
+            current = current.next;
+            otherCurrent = otherCurrent.next;
+        }
+        return true;
     }
 
 
