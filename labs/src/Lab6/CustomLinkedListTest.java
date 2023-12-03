@@ -21,7 +21,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testAdd() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
 
         assertTrue(list.isEmpty());
         list.add(diamond);
@@ -34,7 +34,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testAddAtIndex() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(rubin);
         list.add(sapphire);
         list.add(1, rubin);
@@ -45,7 +45,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testAddAll() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         List<Stone> addList = Arrays.asList(quartz, quartz2);
         list.addAll(addList);
         assertEquals(2, list.size());
@@ -58,7 +58,7 @@ public class CustomLinkedListTest {
     @Test
     void testRemove() {
 
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(quartz);
         list.add(quartz2);
         list.remove(0);
@@ -71,7 +71,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testClear() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
 
         list.add(quartz);
         list.add(quartz2);
@@ -83,7 +83,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testRemoveAll() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         List<Stone> removeList = Arrays.asList(quartz, quartz2);
         list.add(quartz);
         list.add(quartz2);
@@ -97,7 +97,7 @@ public class CustomLinkedListTest {
 
     @Test
     void testContainsAll() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(diamond);
         list.add(quartz);
         List<Stone> testList = Arrays.asList(diamond, quartz);
@@ -109,7 +109,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testContains() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(diamond);
         assertTrue(list.contains(diamond));
     }
@@ -119,26 +119,13 @@ public class CustomLinkedListTest {
      */
     @Test
     void testExceptionForInvalidIndex() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(diamond);
         list.add(quartz);
         assertThrows(IndexOutOfBoundsException.class, () -> list.get(5));
     }
 
-    /**
-     * тест методу Reverse(), що інвертує порядок елементів у списку
-     */
-    @Test
-    void testReverse() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
-        list.add(sapphire);
-        list.add(diamond);
-        list.add(quartz);
-        list.reverse();
-        assertEquals(quartz, list.get(0));
-        assertEquals(diamond, list.get(1));
-        assertEquals(sapphire, list.get(2));
-    }
+
 
     /**
      * Тестує метод retainAll() для збереження елементів, що належать до певної колекції.
@@ -146,7 +133,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testRetainAll() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(sapphire);
         list.add(diamond);
         list.add(rubin);
@@ -163,11 +150,11 @@ public class CustomLinkedListTest {
      */
     @Test
     void testSubList() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(rubin);
         list.add(quartz);
         list.add(diamond);
-        CustomLinkedList<Stone> subList = list.subList(1, 3);
+        List<Stone> subList = list.subList(1, 3);
         assertEquals(2, subList.size());
         assertEquals(quartz, subList.get(0));
         assertEquals(diamond, subList.get(1));
@@ -179,7 +166,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testToArray() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(diamond);
         list.add(quartz);
         list.add(rubin);
@@ -193,11 +180,11 @@ public class CustomLinkedListTest {
      */
     @Test
     void testEquals() {
-        CustomLinkedList<Stone> list1 = new CustomLinkedList<>();
+        List<Stone> list1 = new CustomLinkedList<>();
         list1.add(quartz);
         list1.add(rubin);
         list1.add(sapphire);
-        CustomLinkedList<Stone> list2 = new CustomLinkedList<>();
+        List<Stone> list2 = new CustomLinkedList<>();
         list2.add(quartz);
         list2.add(rubin);
         list2.add(sapphire);
@@ -210,7 +197,7 @@ public class CustomLinkedListTest {
      */
     @Test
     void testSet() {
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(diamond);
         list.add(sapphire);
         list.set(1, quartz);
@@ -219,7 +206,7 @@ public class CustomLinkedListTest {
 
     @Test
     void testToString(){
-        CustomLinkedList<Stone> list = new CustomLinkedList<>();
+        List<Stone> list = new CustomLinkedList<>();
         list.add(rubin);
         assertEquals("[\nRubin carats=1.89, refraction=1.735, price_per_one_carat=200, price=378}]",list.toString());
 
